@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">FakeCall</string>
+
+    <string name="by_glucca">by Glucca</string>
+
+    <string name="call_1">(nome1 - hora1)</string>
+    <string name="call_2">(nome2 - hora2)</string>
+    <string name="call_3">(nome3 - hora3)</string>
+
+    <string name="edit_call_1">Editar chamada 1</string>
+    <string name="edit_call_2">Editar chamada 2</string>
+    <string name="edit_call_3">Editar chamada 3</string>
+
+    <string name="delete_call_1">Excluir chamada 1</string>
+    <string name="delete_call_2">Excluir chamada 2</string>
+    <string name="delete_call_3">Excluir chamada 3</string>
+
+    <string name="new_call">Nova chamada</string>
+
+
+    <string name="edit_call_title">Editar chamada</string>
+    <string name="name_label">Nome</string>
+    <string name="datetime_label">Hora / Dia</string>
+    <string name="datetime_hint">Toque para selecionar data e hora</string>
+    <string name="save_button">Salvar</string>
+    <string name="cancel_button">Cancelar</string>
+</resources>

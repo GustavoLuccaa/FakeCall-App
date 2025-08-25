@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/incoming_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/call_background">
+
+    <!-- Small label on top -->
+    <TextView
+        android:id="@+id/tvIncomingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Incoming call"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:alpha="0.9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Caller name (big) -->
+    <TextView
+        android:id="@+id/tvCallerName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Scam or Fraud"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tvIncomingLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Fake phone number below name -->
+    <TextView
+        android:id="@+id/tvCallerNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SMART 012-3456-7890"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.9"
+        app:layout_constraintTop_toBottomOf="@id/tvCallerName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Answer (green) -->
+    <ImageButton
+        android:id="@+id/btnAnswer"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/call_btn_circulo"
+        android:contentDescription="Atender"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/verde"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnDecline"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <!-- Decline (red) -->
+    <ImageButton
+        android:id="@+id/btnDecline"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/call_btn_circulo"
+        android:contentDescription="Encerrar"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/vermelho"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnAnswer"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
