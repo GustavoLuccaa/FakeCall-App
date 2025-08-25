@@ -21,8 +21,8 @@ public class EditActivity extends AppCompatActivity {
     private EditText etName, etDateTime;
     private Button btnSave, btnCancel;
 
-    private Calendar chosenCalendar = Calendar.getInstance();
-    private int slotIndex = 1;
+    private Calendar chosenCalendar = Calendar.getInstance(); // Usar Calendar facilita setar ano/mês/dia/hora/minuto separadamente.
+    private int slotIndex = 1; // // slotIndex: qual slot (1..3) estamos editando. Vem da MainActivity.
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class EditActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
         btnCancel = findViewById(R.id.btnCancel);
 
-        // Ler extras: slot + valores existentes (se houver)
+        // Ler dados enviados pela MainActivity (se estivermos editando um slot existente).
         Intent incoming = getIntent();
         if (incoming != null) {
             slotIndex = incoming.getIntExtra(MainActivity.EXTRA_SLOT, 1);
@@ -47,6 +47,7 @@ public class EditActivity extends AppCompatActivity {
             }
         }
 
+         // Quando o usuário clicar no campo de data/hora, abrimos o DatePicker.
         etDateTime.setOnClickListener(v -> openDatePicker());
 
         btnCancel.setOnClickListener(v -> {
@@ -68,7 +69,7 @@ public class EditActivity extends AppCompatActivity {
                 etDateTime.requestFocus();
                 return;
             }
-
+            // Se passou nas validações, montamos um Intent de resultado com os dados
             Intent result = new Intent();
             result.putExtra(MainActivity.EXTRA_SLOT, slotIndex);
             result.putExtra(MainActivity.EXTRA_NAME, name);
@@ -78,6 +79,8 @@ public class EditActivity extends AppCompatActivity {
         });
     }
 
+
+    // Abre o DatePicker com o ano/mês/dia do chosenCalendar.
     private void openDatePicker() {
         int y = chosenCalendar.get(Calendar.YEAR);
         int m = chosenCalendar.get(Calendar.MONTH);
@@ -93,6 +96,7 @@ public class EditActivity extends AppCompatActivity {
         dp.show();
     }
 
+    //Abre o timePicker
     private void openTimePicker() {
         int hour = chosenCalendar.get(Calendar.HOUR_OF_DAY);
         int minute = chosenCalendar.get(Calendar.MINUTE);
@@ -107,6 +111,8 @@ public class EditActivity extends AppCompatActivity {
         tp.show();
     }
 
+    // Formata chosenCalendar para "dd/MM/yyyy HH:mm" e coloca no etDateTime para exibição.
+    // Por que: esse formato é o que o MainActivity espera parsear depois para epoch millis.
     private void updateDateTimeText() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
         String formatted = sdf.format(chosenCalendar.getTime());

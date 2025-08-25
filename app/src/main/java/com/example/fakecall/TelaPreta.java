@@ -13,7 +13,8 @@ public class TelaPreta extends AppCompatActivity {
         // Deixa fullscreen com fundo preto
         View blackView = new View(this);
         blackView.setBackgroundColor(0xFF000000);
-        setContentView(blackView);
+        setContentView(blackView); //setContentView(blackView) define essa view como o conteúdo da Activity.
+        //Ou seja: em vez de carregar um layout.xml, você passa diretamente uma View criada no código.
 
         // Esconde barras
         getWindow().getDecorView().setSystemUiVisibility(
